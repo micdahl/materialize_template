@@ -7,7 +7,7 @@ services:
       dockerfile: 'pug.dockerfile'
     volumes:
       - ./:/site
-    command: ["pug", "--watch", "--pretty", "--basedir", "./includes", "--out", "./dist", "./src"]
+    command: ["pug", "--watch", "--pretty", "--basedir", "./src/includes", "--out", "./dist", "./src"]
 
   sass:
     build:
@@ -15,4 +15,4 @@ services:
       dockerfile: 'sass.dockerfile'
     volumes:
       - ./:/site
-    command: ["sass", "--watch", "src/sass:dist/css"]
+    command: ["sass", "--watch", "src/scss:dist/css"]
