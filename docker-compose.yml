@@ -1,0 +1,18 @@
+version: "3"
+services:
+
+  pug:
+    build:
+      context: .
+      dockerfile: 'pug.dockerfile'
+    volumes:
+      - ./:/site
+    command: ["pug", "--watch", "--pretty", "--basedir", "./includes", "--out", "./dist", "./src"]
+
+  sass:
+    build:
+      context: .
+      dockerfile: 'sass.dockerfile'
+    volumes:
+      - ./:/site
+    command: ["sass", "--watch", "src/sass:dist/css"]
